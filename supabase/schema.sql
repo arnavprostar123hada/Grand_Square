@@ -25,3 +25,12 @@ create policy "Owners and admins can manage Grandsquare products" on public.prod
   for all to authenticated
   using (exists (select 1 from public.grandsquare_profiles gp where gp.user_id = (select auth.uid()) and gp.role in ('owner','admin')))
   with check (exists (select 1 from public.grandsquare_profiles gp where gp.user_id = (select auth.uid()) and gp.role in ('owner','admin')));
+
+-- Explicit grants and default-safe permissions for the exposed Data API.
+grant select on public.products to anon, authenticated;
+grant insert, update, delete on public.products to authenticated;
+revoke insert, update, delete, truncate, references, trigger on public.products from anon;
+grant select on public.grandsquare_profiles to authenticated;
+revoke insert, update, delete, truncate, references, trigger on public.grandsquare_profiles from anon, authenticated;
+
+-- RLS remains the actual row-level authorization boundary; do not grant anonymous writes.
