@@ -6,9 +6,9 @@ Modern apparel storefront built with React, Vite, TypeScript, and Supabase.
 - Responsive fashion storefront, product cards, category filters, search, sort
 - Product detail sheet with size/color selection
 - Wishlist and demo cart
-- Admin workspace for product photos and product metadata
-- GLB/USDZ model URL fields with explicit AR-ready state
-- Supabase product schema and separate storage buckets
+- Admin workspace for uploading multiple product views and shirt metadata
+- GLB/USDZ model URL fields with explicit AR readiness state
+- Supabase product schema and two Storage buckets
 
 ## Run locally
 ```bash
@@ -17,13 +17,13 @@ npm run dev
 ```
 
 ## Backend
-A dedicated Grandsquare Supabase project has been created. Browser config defaults to its URL and publishable key; you may override with `.env`. The project schema is installed and RLS is enabled. Public customers can read published products. **Admin writes and permanent image upload still need secured authentication/storage integration**; admin UI is currently a starter workspace, and uploaded local preview URLs do not persist across devices.
+A dedicated Grandsquare Supabase project is created and the products/profile tables and Storage buckets have been provisioned. Browser config defaults to that project; override via `.env` if required. RLS is on and public customers can read published products. **Do not use the admin upload screen as an authenticated production admin yet:** product write policies are not granted publicly, and the interface still needs owner/admin sign-in and role enforcement. Permanent image uploads require a signed-in account due to Storage policy. Do not weaken RLS to make the demo work.
 
 ## Garment photo-to-3D / AR
-This does not claim that a photo upload alone reconstructs a true, fit-accurate 3D garment. Upload front/back/side/collar/cuff/fabric photos, generate/review a mesh using a garment reconstruction or 3D asset workflow, then attach a tested GLB (web) or USDZ (iOS Quick Look) URL. Test on real devices. Accurate body-aware virtual fit is a separate stage.
+This app does not claim that a photo upload alone reconstructs a true, fit-accurate 3D garment. Capture front/back/side/collar/cuff/fabric details, then use a garment reconstruction or professional 3D asset workflow to create/review a mesh. Attach a tested GLB model for web and USDZ for iOS Quick Look. Fit-accurate body simulation is a separate stage.
 
 ## Deployment
-Vercel project creation succeeded, but GitHub linking currently needs Vercel's GitHub App integration to be installed and the Vercel connector's team access approved. Link this repo at Vercel Dashboard → Project Settings → Git once authorized. Use build command `npm run build` and output directory `dist`.
+Vercel project has been created, but its connector scope still needs approval and GitHub integration must be enabled to link repository pushes. Approve the team access link from the setup chat, then connect `arnavprostar123hada/Grand_Square` in Vercel Dashboard → Project Settings → Git. Set build command `npm run build` and output directory `dist`.
 
-## Before commerce launch
-Connect permanent Supabase Storage uploads with admin-only policies, secure admin authentication, order database, payment provider, shipping and returns policies, and newsletter integration. Demo product photos and prices are placeholders.
+## Before accepting orders
+Add secure owner login/admin role management, admin-only product policies, payment gateway, orders, shipping/returns, permanent upload and cleanup, email provider, and test on mobile devices.
