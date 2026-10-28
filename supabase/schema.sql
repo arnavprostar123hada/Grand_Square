@@ -19,4 +19,9 @@ drop policy if exists "Public can read Grandsquare product images" on storage.ob
 create policy "Public can read Grandsquare product images" on storage.objects for select to anon, authenticated using(bucket_id in ('grandsquare-product-images','grandsquare-models'));
 drop policy if exists "Signed in users can upload Grandsquare assets" on storage.objects;
 create policy "Signed in users can upload Grandsquare assets" on storage.objects for insert to authenticated with check(bucket_id in ('grandsquare-product-images','grandsquare-models'));
--- Customer-facing products can be read; writes to the products table are intentionally not publicly granted.
+-- Admin writes are permitted only when the signed-in user's trusted profile has owner/admin role.
+drop policy if exists "Owners and admins can manage Grandsquare products" on public.products;
+create policy "Owners and admins can manage Grandsquare products" on public.products
+  for all to authenticated
+  using (exists (select 1 from public.grandsquare_profiles gp where gp.user_id = (select auth.uid()) and gp.role in ('owner','admin')))
+  with check (exists (select 1 from public.grandsquare_profiles gp where gp.user_id = (select auth.uid()) and gp.role in ('owner','admin')));
