@@ -363,3 +363,86 @@ body{background:var(--paper);color:var(--ink);cursor:default}
 }
 @media(max-width:380px){.hero h1{font-size:62px}.hero-buttons{align-items:stretch;flex-direction:column}.hero-buttons .btn{width:100%;justify-content:space-between}.header-actions .wishlist-top{display:none}.product-title-line strong{font-size:9px}.category-tabs button{padding:8px;font-size:9px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;animation-timeline:auto!important}}
+
+
+/* TABLET MODE — full-screen, touch-first fashion experience */
+@media (min-width:701px) and (max-width:1400px) and (orientation:landscape){
+ html{scroll-snap-type:y proximity;scroll-padding-top:0}
+ body{overflow-x:hidden;overscroll-behavior-y:contain}
+ .app-shell{overflow:clip}
+ .announcement{height:25px;padding:0 3.1%;font-size:8px;letter-spacing:.12em}
+ .site-header{height:64px;padding:0 3.1%;grid-template-columns:auto 1fr auto;gap:26px;background:rgba(240,240,233,.9)}
+ .wordmark{font-size:26px}
+ .main-nav{justify-content:center;gap:clamp(18px,3vw,42px)}
+ .main-nav a{font-size:9px}
+ .header-actions{gap:10px}
+ .bag-btn{padding:10px 14px}
+ .search-bar{top:64px}
+ .hero{min-height:calc(100svh - 89px);height:calc(100svh - 89px);max-height:850px;padding:5vh 5.2% 4vh;grid-template-columns:.85fr 1.15fr;gap:3.5%;scroll-snap-align:start;scroll-snap-stop:normal}
+ .hero:before{top:4%;right:3.5%;font-size:9px}
+ .hero:after{width:34vw;height:34vw;right:17%;top:14%}
+ .hero-copy{padding-bottom:0}
+ .hero .eyebrow{font-size:9px}
+ .hero h1{font-size:clamp(82px,10vw,144px);margin:3vh 0 3vh;line-height:.8}
+ .hero-text{font-size:clamp(12px,1.25vw,16px);max-width:350px;line-height:1.65;margin-bottom:2.5vh}
+ .hero-buttons .btn{padding:15px 16px;font-size:9px}
+ .hero-foot{margin-top:4vh}
+ .hero-visual{height:100%;min-height:0;max-height:unset}
+ .hero-image-main{inset:0 12% 7% 7%}
+ .hero-image-side{width:38%;height:38%;border-width:7px}
+ .hero-circle{width:clamp(95px,10vw,135px);right:1%;top:6%;font-size:9px}
+ .hero-note{font-size:8px}
+ .hero-side-index{right:0;font-size:8px}
+ .ticker{scroll-snap-align:start;padding:14px 0}
+ .ticker-track span{font-size:10px}
+ .collection{min-height:100svh;padding:7vh 4.2% 4vh;display:flex;flex-direction:column;justify-content:center;scroll-snap-align:start}
+ .section-wrap{padding-left:4.2%;padding-right:4.2%}
+ .collection .section-heading{margin-bottom:3vh;align-items:flex-end}
+ .section-heading h2{font-size:clamp(54px,6vw,86px);margin-top:1.8vh}
+ .heading-note{font-size:11px;max-width:220px}
+ .collection-tools{margin-bottom:2vh;padding:10px 0}
+ .category-tabs button{padding:9px 12px;font-size:10px}
+ .product-grid{display:flex;gap:14px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:#b4b6a9 transparent;padding:0 0 12px;flex:1;min-height:0;align-items:stretch;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y}
+ .product-card{flex:0 0 clamp(210px,22vw,300px);scroll-snap-align:start;min-height:0;animation-delay:0ms!important}
+ .product-photo{aspect-ratio:4/4.5}
+ .product-info{padding-top:10px}
+ .product-name{font-size:13px}
+ .product-info>p{margin:5px 0 9px;font-size:10px}
+ .product-card-bottom{padding:8px 0}
+ .tryon-link{margin-top:7px}
+ .collection-bottom{margin-top:1.5vh;padding-top:12px}
+ .tryon-band{min-height:100svh;scroll-snap-align:start;grid-template-columns:1fr 1fr}
+ .tryon-band-image{min-height:100svh}
+ .tryon-band-copy{padding:5vh 5vw}
+ .tryon-band-copy h2{font-size:clamp(58px,7vw,94px);margin:2.4vh 0}
+ .tryon-band-copy>p:not(.eyebrow){font-size:12px;max-width:390px}
+ .feature-list{margin:2vh 0}
+ .feature-list>div{padding:1.4vh 0}
+ .manifesto{min-height:100svh;display:flex;flex-direction:column;justify-content:center;scroll-snap-align:start}
+ .manifesto h2{font-size:clamp(120px,17vw,230px);margin:8vh 0}
+ .manifesto-foot p{font-size:13px}
+ .newsletter{min-height:60svh;scroll-snap-align:start}
+ .site-footer{scroll-snap-align:start}
+ .product-modal,.tryon-modal{max-height:94svh}
+}
+/* Tablet portrait: a gallery-like, thumb-friendly layout rather than desktop squeezed down */
+@media (min-width:701px) and (max-width:1100px) and (orientation:portrait){
+ .site-header{height:70px;padding:0 22px;grid-template-columns:1fr auto}
+ .main-nav{display:none}
+ .hero{grid-template-columns:1fr 1fr;min-height:70svh;padding:50px 28px}
+ .hero h1{font-size:clamp(65px,10vw,100px)}
+ .hero-visual{min-height:55svh}
+ .section-wrap{padding-left:28px;padding-right:28px}
+ .collection{padding-top:70px;padding-bottom:60px}
+ .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+ .product-photo{aspect-ratio:4/5}
+ .tryon-band-copy{padding:34px}
+ .tryon-band-copy h2{font-size:clamp(45px,7vw,70px)}
+ .manifesto h2{font-size:clamp(95px,15vw,160px)}
+}
+@media (hover:none) and (pointer:coarse){
+ button,a,.product-click{touch-action:manipulation}
+ .btn,.bag-btn,.category-tabs button,.size-options button,.quick-add,.heart-float{min-height:42px}
+ .product-card:hover .product-photo img,.hero-visual:hover .hero-image img,.tryon-band:hover .tryon-band-image>img{transform:none}
+ .product-grid{scrollbar-width:thin}
+}
