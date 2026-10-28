@@ -34,3 +34,13 @@ grant select on public.grandsquare_profiles to authenticated;
 revoke insert, update, delete, truncate, references, trigger on public.grandsquare_profiles from anon, authenticated;
 
 -- RLS remains the actual row-level authorization boundary; do not grant anonymous writes.
+
+-- Restrict Storage insert to trusted owners/admins (not any authenticated account).
+drop policy if exists "Signed in users can upload Grandsquare assets" on storage.objects;
+drop policy if exists "Owners and admins can upload Grandsquare assets" on storage.objects;
+create policy "Owners and admins can upload Grandsquare assets" on storage.objects
+for insert to authenticated
+with check (
+ bucket_id in ('grandsquare-product-images','grandsquare-models')
+ and exists (select 1 from public.grandsquare_profiles gp where gp.user_id=(select auth.uid()) and gp.role in ('owner','admin'))
+);
