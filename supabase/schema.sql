@@ -8,9 +8,9 @@ create table if not exists public.products (
 );
 alter table public.products enable row level security;
 create policy "Anyone can view published Grandsquare products" on public.products for select to anon, authenticated using(published=true);
--- Writes remain denied until a properly secured admin role/policy is implemented.
+-- No public or customer write access is granted. Add a trusted admin role policy only after authentication/authorization is configured.
 create table if not exists public.grandsquare_profiles(user_id uuid primary key references auth.users(id) on delete cascade,role text not null default 'customer' check(role in ('owner','admin','customer')),created_at timestamptz not null default now());
 alter table public.grandsquare_profiles enable row level security;
 create policy "Users can read their own Grandsquare profile" on public.grandsquare_profiles for select to authenticated using((select auth.uid())=user_id);
--- Create separate Storage buckets 'grandsquare-product-images' and 'grandsquare-models' through Dashboard.
--- Add upload policies for admin accounts only. Never expose the service-role key to the browser.
+-- Create separate Storage buckets: grandsquare-product-images and grandsquare-models.
+-- Configure bucket policies before uploads. Never expose service-role keys to the browser.
