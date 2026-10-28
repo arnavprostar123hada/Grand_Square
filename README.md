@@ -1,15 +1,14 @@
 # Grandsquare — AR Shirt Store
 
-Modern apparel storefront starter built with React, Vite, TypeScript, and Supabase integration points.
+Modern apparel storefront built with React, Vite, TypeScript, and Supabase.
 
 ## Included
-- Responsive editorial storefront and product cards
-- Category tabs, search and sorting
-- Product detail panel, color and size selection
-- Wishlist and demo shopping cart
-- Admin product workspace to upload multi-view shirt photos and product metadata
-- GLB/USDZ asset fields and honest AR readiness state
-- Supabase schema in `supabase/schema.sql`
+- Responsive fashion storefront, product cards, category filters, search, sort
+- Product detail sheet with size/color selection
+- Wishlist and demo cart
+- Admin workspace for product photos and product metadata
+- GLB/USDZ model URL fields with explicit AR-ready state
+- Supabase product schema and separate storage buckets
 
 ## Run locally
 ```bash
@@ -17,20 +16,14 @@ npm install
 npm run dev
 ```
 
-Copy `.env.example` to `.env` and add credentials from a **dedicated Grandsquare Supabase project**. Do not reuse the connected Ramanujan Academy project; it holds education, student and financial records.
+## Backend
+A dedicated Grandsquare Supabase project has been created. Browser config defaults to its URL and publishable key; you may override with `.env`. The project schema is installed and RLS is enabled. Public customers can read published products. **Admin writes and permanent image upload still need secured authentication/storage integration**; admin UI is currently a starter workspace, and uploaded local preview URLs do not persist across devices.
 
-## 3D garment reconstruction and AR
-Uploading photos is not the same as automatically creating a production quality 3D garment. For useful AR, capture front/back/sides/collar/cuff/fabric detail photos, then use a garment reconstruction / professional 3D workflow to produce a reviewed, textured GLB and (for iOS Quick Look) USDZ model. Test supported devices. Fit simulation/body-aware try-on is a separate, more advanced capability; this starter does not claim to have implemented it.
-
-Products show a standard photo preview until a real model URL is attached. The AR entry will only open a supplied GLB/USDZ URL.
-
-## Supabase security
-Run `supabase/schema.sql` only in a dedicated Grandsquare project. It enables RLS and public read of published products, while writes remain denied until an authenticated admin policy is designed. Create separate Storage buckets for product images and 3D models and restrict uploads to admins. Do not expose service-role/secret keys in the browser.
+## Garment photo-to-3D / AR
+This does not claim that a photo upload alone reconstructs a true, fit-accurate 3D garment. Upload front/back/side/collar/cuff/fabric photos, generate/review a mesh using a garment reconstruction or 3D asset workflow, then attach a tested GLB (web) or USDZ (iOS Quick Look) URL. Test on real devices. Accurate body-aware virtual fit is a separate stage.
 
 ## Deployment
-Link this GitHub repo to Vercel after the GitHub App integration is installed. Set build command `npm run build`, output directory `dist`, framework `Vite`. Add `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` only after the dedicated Grandsquare project is created.
+Vercel project creation succeeded, but GitHub linking currently needs Vercel's GitHub App integration to be installed and the Vercel connector's team access approved. Link this repo at Vercel Dashboard → Project Settings → Git once authorized. Use build command `npm run build` and output directory `dist`.
 
-## Known demo limitations
-- Demo product images and catalogue are sample content.
-- Admin uploads currently create browser-local preview URLs; those URLs are not permanent and will not persist across devices. Configure Supabase Storage upload before using the product uploader operationally.
-- Checkout and newsletter are UI placeholders; connect a payment and email provider before accepting orders/signups.
+## Before commerce launch
+Connect permanent Supabase Storage uploads with admin-only policies, secure admin authentication, order database, payment provider, shipping and returns policies, and newsletter integration. Demo product photos and prices are placeholders.
