@@ -1,9 +1,52 @@
 import type { Product } from '../types'
+
 export const demoProducts: Product[] = [
-{id:'gs-001',name:'The Oxford Shirt',subtitle:'Crisp cotton · relaxed structure',price:1890,category:'Everyday',color:'Cloud White',colorHex:'#e8e5dd',sizes:['S','M','L','XL','XXL'],image:'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=1000&q=85',images:[],description:'A dependable everyday shirt in soft, breathable cotton. Clean lines, considered details, and a fit made for movement.',isNew:true,published:true},
-{id:'gs-002',name:'Linen Blend Shirt',subtitle:'Airy linen blend · warm-weather ease',price:2190,category:'Linen',color:'Sage',colorHex:'#a5ad97',sizes:['S','M','L','XL'],image:'https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=1000&q=85',images:[],description:'A light linen blend with an easy drape, designed for long days and late afternoons.',published:true},
-{id:'gs-003',name:'The Everyday Poplin',subtitle:'Smooth poplin · all-day comfort',price:1790,category:'Everyday',color:'Sky Blue',colorHex:'#9db4c4',sizes:['S','M','L','XL','XXL'],image:'https://images.unsplash.com/photo-1607345366928-199ea26cfe3e?auto=format&fit=crop&w=1000&q=85',images:[],description:'A versatile poplin shirt that moves between desk, dinner and everything in between.',published:true},
-{id:'gs-004',name:'The Evening Shirt',subtitle:'Refined finish · modern tailoring',price:2490,category:'Formals',color:'Midnight',colorHex:'#343b43',sizes:['S','M','L','XL'],image:'https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=1000&q=85',images:[],description:'A sharper silhouette with a comfortable finish. Built for plans that start after five.',isNew:true,published:true},
-{id:'gs-005',name:'Weekend Texture Shirt',subtitle:'Textured weave · easy layering',price:1990,category:'Weekend',color:'Stone',colorHex:'#b8ae9e',sizes:['S','M','L','XL','XXL'],image:'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=1000&q=85',images:[],description:'Quiet texture and a relaxed feel make this the shirt you reach for on unplanned days.',published:true},
-{id:'gs-006',name:'The Tailored Essential',subtitle:'Structured cotton · versatile fit',price:2290,category:'Formals',color:'Pale Blue',colorHex:'#bbcbd5',sizes:['S','M','L','XL'],image:'https://images.unsplash.com/photo-1620012253295-c15a3e2a63fa?auto=format&fit=crop&w=1000&q=85',images:[],description:'A tailored staple for the days you want a little more structure without sacrificing comfort.',published:true}
+  {
+    id: 'gs-demo-001',
+    name: 'Classic White Shirt',
+    subtitle: 'Clean everyday style · crisp finish',
+    price: 900,
+    originalPrice: 1200,
+    category: 'Everyday',
+    color: 'Classic White',
+    colorHex: '#eeeae0',
+    sizes: ['S', 'M', 'L', 'XL'],
+    image: '/products/shirt-1.jpg',
+    images: ['/products/shirt-1.jpg'],
+    description: 'A timeless Grand Square shirt in classic white. Available in S, M, L and XL. Special MVP Expo price: ₹900 (regular price ₹1,200).',
+    isNew: true,
+    published: true
+  },
+  {
+    id: 'gs-demo-002',
+    name: 'Sky Blue Shirt',
+    subtitle: 'Fresh light blue · versatile everyday wear',
+    price: 900,
+    originalPrice: 1200,
+    category: 'Everyday',
+    color: 'Sky Blue',
+    colorHex: '#c9dce3',
+    sizes: ['S', 'M', 'L', 'XL'],
+    image: '/products/shirt-2.jpg',
+    images: ['/products/shirt-2.jpg'],
+    description: 'A fresh sky-blue Grand Square shirt for a smart, easy look. Available in S, M, L and XL. Special MVP Expo price: ₹900 (regular price ₹1,200).',
+    isNew: true,
+    published: true
+  },
+  {
+    id: 'gs-demo-003',
+    name: 'Olive Green Shirt',
+    subtitle: 'Subtle olive tone · easy to style',
+    price: 900,
+    originalPrice: 1200,
+    category: 'Everyday',
+    color: 'Olive Green',
+    colorHex: '#7d8060',
+    sizes: ['S', 'M', 'L', 'XL'],
+    image: '/products/shirt-3.jpg',
+    images: ['/products/shirt-3.jpg'],
+    description: 'A distinctive olive-green Grand Square shirt with a versatile, understated look. Available in S, M, L and XL. Special MVP Expo price: ₹900 (regular price ₹1,200).',
+    isNew: true,
+    published: true
+  }
 ]
