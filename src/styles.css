@@ -483,3 +483,37 @@ body{background:var(--paper);color:var(--ink);cursor:default}
  .payment-panel{max-height:92vh}
 }
 @media(max-width:600px){.payment-panel{padding:28px 18px 22px}.payment-qr{width:200px;height:200px}.payment-total strong{font-size:21px}}
+
+
+/* GRAND SQUARE / MVP EXPO BRAND THEME */
+:root{--paper:#f7f5f1;--ink:#202124;--muted:#77736f;--line:#dedbd6;--green:#bd202b}
+.announcement{background:#202124;border-bottom:2px solid #c51f2b}
+.site-header{background:#fbfaf8}
+.brand-lockup{display:flex;align-items:center;width:clamp(148px,18vw,218px);max-width:100%;line-height:0}
+.brand-lockup img{display:block;width:100%;height:auto;max-height:58px;object-fit:contain}
+.footer-brand-lockup{width:clamp(145px,16vw,190px)}
+.hero{background:linear-gradient(115deg,#fbfaf8 0%,#f5f1ed 62%,#eee9e4 100%)}
+.hero-copy .eyebrow,.eyebrow{color:#9f2730}
+.live-dot{background:#c51f2b;box-shadow:0 0 0 3px #f0d9d9}
+.btn-dark{background:#202124}
+.btn-dark:hover{background:#b51f2a}
+.hero-circle{background:#bd202b}
+.ticker{background:#f0e2df}
+.ticker-track i{color:#bd202b}
+.product-badge{border-left:3px solid #c51f2b}
+.heart-float.hearted{color:#bd202b}
+.tryon-link{color:#a52a32}
+.manifesto{background:#202124}
+.manifesto h2 em,.manifesto-star{color:#e6a0a2}
+.manifesto-foot a{border-color:#c65b60}
+.payment-total strong{color:#bd202b}
+.brand-lockup:focus-visible{outline:2px solid #bd202b;outline-offset:5px}
+.hero-brand-card{position:absolute;z-index:4;top:18px;right:2%;width:clamp(128px,17vw,190px);padding:7px;background:#fff;border:1px solid #e5d7d4;box-shadow:0 12px 35px #27202018;transform:rotate(3deg)}
+.hero-brand-card img{display:block;width:100%;height:auto}
+@media(max-width:700px){
+ .site-header{grid-template-columns:42px 1fr auto;gap:8px}
+ .brand-lockup{width:clamp(132px,42vw,180px)}
+ .brand-lockup img{max-height:48px}
+ .hero-brand-card{top:6px;right:0;width:112px}
+ .footer-brand-lockup{width:150px}
+}
